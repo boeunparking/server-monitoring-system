@@ -20,7 +20,7 @@ try {
                         'Namespace' => 'AWS/EC2',
                         'MetricName' => 'CPUUtilization',
                         'Dimensions' => [
-                            ['Name' => 'InstanceId', 'Value' => 'i-0d52d49495e79b968']
+                            ['Name' => 'InstanceId', 'Value' => 'instance-id']
                         ]
                     ],
                     'Period' => 60, // 1분 단위
