@@ -75,6 +75,19 @@ try {
 <body>
     <div style="width: 600px; margin: 50px auto; text-align: center;">
         <h2>🖥️ EC2 CPU 사용량 (1분 단위)</h2>
+        
+        <?php if ($error_message): ?>
+            <div style="color: red; border: 1px solid red; padding: 10px;">
+                AWS 에러 발생: <?php echo htmlspecialchars($error_message); ?>
+            </div>
+        <?php elseif (empty($timestamps)): ?>
+            <div style="color: orange; border: 1px solid orange; padding: 10px;">
+                아직 1분 단위 데이터가 세팅되지 않았습니다. 3~5분 후 새로고침 하세요.
+            </div>
+        <?php else: ?>
+            <canvas id="cpuChart"></canvas>
+        <?php endif; ?>
+    </div>
 
     <script>
         const chartLabels = <?php echo json_encode($timestamps); ?>;
